@@ -1,0 +1,9 @@
+{% if all_capitals %}
+    <ul>
+        {% for capital in all_capitals %}
+        <li><a href="/co2/{{ capital.id }}">{{ capital.capital_title }}</a> </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>There are no capitals defined</h3>
+{% endif %}
