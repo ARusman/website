@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Capital
+from . models import Capital
 
 def index(request):
     all_capitals = Capital.objects.all()
