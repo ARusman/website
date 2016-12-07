@@ -17,5 +17,5 @@ class Impact(models.Model):
     valuation = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.impact_title + ' - ' + self.footprint + ' x ' + self.valuation
+        return self.impact_title
 
