@@ -1,4 +1,5 @@
 {% if all_capitals %}
+    <h3>These are the defined capitals</h3>
     <ul>
         {% for capital in all_capitals %}
         <li><a href="/co2/{{ capital.id }}">{{ capital.capital_title }}</a> </li>

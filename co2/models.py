@@ -12,6 +12,10 @@ class Capital(models.Model):
 
 class Impact(models.Model):
     capital = models.ForeignKey(Capital, on_delete=models.CASCADE)
-    footprint = models.FloatField(max_length=10)
+    footprint = models.CharField(max_length=100)
     impact_title = models.CharField(max_length=200)
-    valuation = models.FloatField(max_length=10)
+    valuation = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.impact_title + ' - ' + self.footprint + ' x ' + self.valuation
+
