@@ -3,6 +3,6 @@
 
 <ul>
     {% for impact in capital.impact_set.all %}
-    <li>{{ impact.impact_title }} - {{ impact.footprint }} - {{ impact.valuation }}</li>
+    <li>{{ impact.impact_title }} = {{ impact.footprint }} * {{ impact.valuation }}</li>
     {% endfor %}
 </ul>
