@@ -2,7 +2,7 @@
     <h3>These are the defined capitals</h3>
     <ul>
         {% for capital in all_capitals %}
-        <li><a href="/co2/{{ capital.id }}">{{ capital.capital_title }}</a> </li>
+        <li><a href="{% url 'co2:detail' capital.id %}">{{ capital.capital_title }}</a> </li>
         {% endfor %}
     </ul>
 {% else %}
