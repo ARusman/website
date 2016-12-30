@@ -1,18 +1,15 @@
 {% extends 'co2/base.html' %}
 
 {% block body %}
-    {% if all_capitals %}
+
         <h3>These are the defined capitals</h3>
         <ul>
             {% for capital in all_capitals %}
-            <li><a href="{% url 'co2:detail' capital.id %}">{{ capital.capital_title }}</a> </li>
+                <li><a href="{% url 'co2:detail' capital.id %}">{{ capital.capital_title }}</a> </li>
             {% endfor %}
         </ul>
-    {% else %}
-        <h3>There are no capitals defined</h3>
-    {% endif %}
+
 {% endblock %}
 
 
 
-<a class="navbar-brand" href="{% url 'co2:index' %}"> url("images/trueprice.png") </a>

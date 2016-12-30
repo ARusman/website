@@ -1,26 +1,19 @@
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Capital
 
+class IndexView(generic.ListView):
+    template_name = 'co2/index.html'
+    context_object_name = 'all_capitals'
 
-from django.shortcuts import render, get_object_or_404
-from .models import Capital, Impact
+    def get_queryset(self):
+        return Capital.objects.all()
 
-def index(request):
-    all_capitals = Capital.objects.all()
-    return render(request, 'co2/index.html', {'all_capitals': all_capitals})
+class DetailView(generic.DetailView):
+    model = Capital
+    template_name = 'co2/detail.html'
 
-def detail(request, capital_id):
-    capital = get_object_or_404(Capital, pk=capital_id)
-    return render(request, 'co2/detail.html', {'capital': capital})
+class CapitalCreate(CreateView):
+    model = Capital
+    fields = ['color', 'capital_title']
 
-def favorite(request, capital_id):
-    capital = get_object_or_404(Capital, pk=capital_id)
-    try:
-        selected_impact = capital.impact_set.get(pk=request.POST['impact'])
-    except (KeyError, Impact.DoesNotExist):
-        return render(request, 'co2/index.html', {
-            'capital': capital,
-            'error_message': "You did not select a valid impact",
-        })
-    else:
-        selected_impact.is_favorite = True
-        selected_impact.save()
-        return render(request, 'co2/detail.html', {'capital': capital})
