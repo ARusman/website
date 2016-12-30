@@ -1,41 +1,4 @@
-<!-- Loads the path to your static files -->
-{% load staticfiles %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link href='https://fonts.googleapis.com/css?family=Satisfy' rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="{% static 'co2/style.css' %}" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!--Header-->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'co2:index' %}"> True Price </a>
-        </div>
-
-        <!--Items-->
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="{% url 'co2:index' %}">
-                       <span class="glyphicon glyphicon-charts" aria-hidden = "true"></span>&nbsp;
-                       Capitals
-                    </a>
-                </li>
-                 <li class="">
-                    <a href="#">
-                         <span class="glyphicon glyphicon-ruler" aria-hidden = "true"></span>&nbsp; Impacts
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
 {% if all_capitals %}
     <h3>These are the defined capitals</h3>
