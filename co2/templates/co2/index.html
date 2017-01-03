@@ -6,6 +6,13 @@
         <ul>
             {% for capital in all_capitals %}
                 <li><a href="{% url 'co2:detail' capital.id %}">{{ capital.capital_title }}</a> </li>
+                <form action="{% url 'co2:capital-delete' capital.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="capital_id" value="{{ capital.id }}"/>
+                    <button type="submit" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </form>
             {% endfor %}
         </ul>
 

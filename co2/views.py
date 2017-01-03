@@ -1,5 +1,6 @@
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import  reverse_lazy
 from .models import Capital
 
 class IndexView(generic.ListView):
@@ -16,4 +17,12 @@ class DetailView(generic.DetailView):
 class CapitalCreate(CreateView):
     model = Capital
     fields = ['color', 'capital_title']
+
+class CapitalUpdate(UpdateView):
+    model = Capital
+    fields = ['color', 'capital_title']
+
+class CapitalDelete(DeleteView):
+    model = Capital
+    success_url = reverse_lazy('co2:index')
 
